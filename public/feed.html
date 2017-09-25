@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB" data-ng-app="Feed">
+<!-- Defining html5 with XHTML above-->
+
+<head>
+  <meta charset="UTF-8"/>
+
+  <!-- CSS link -->
+  <link href="drawd.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+  <!-- Script Link-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="infinite-scroll.js"></script>
+  <script src="feed.js"></script>
+  <!-- Run Script-->
+
+  <title> Drawd </title>
+  </head>
+
+<body>
+<div class="header">
+    <ul>
+        <li><a href ="index.html"> DRAWD </a></li>
+        <li><a href="index.html" >Draw</a></li>
+        <li><a class = "active" href="feed.html">Feed</a></li>
+    </ul>
+</div>
+
+<div data-ng-controller="feedController">
+  <div data-infinite-scroll="getMoreStories()" data-infinite-scroll-distance="1">
+    <div data-ng-repeat="story in data" class="storyBox">
+      <div class="flex">
+      <div class = "topBar">
+      Drawing Number: {{story.userImageID}}
+      </div>
+      <div class = "imageBox imageBox-1">
+        <img alt="Image to draw" class = "image" data-ng-src = "{{getImageLink(story.origImageID)}}" src="#"/><br />
+      </div>
+      <div class = "imageBox imageBox-1">
+        <img alt = "{{story.location}}" class = "image" data-ng-src="{{story.location}}" src="#"/>
+      </div>
+
+      <div class = "rateBar">
+        <a href="javascript:void(0)" id="button_{{$index}}" data-ng-click="incrementScore(story.userImageID,$index)" data-clicked="0" class="svgHolder">
+          <object id="icon_{{$index}}" data="resources/likeicon.svg" type="image/svg+xml" class="svgIcon"></object>
+        </a>
+        <a id="likecount_{{$index}}">{{story.score}} Likes</a>
+
+
+      </div>
+        <div class = "comments" id="comments_{{$index}}">
+          <div data-ng-repeat="com in comments[story.userImageID]">
+         <a><b>Anonymous: </b>{{com.comment}}</a>
+        </div>
+       </div>
+
+        <div class="container">
+          <div class="clearfix">
+            <form name="commentForm_{{$index}}" data-ng-submit="saveComment(story.userImageID,story.newcomment,$index)" >
+
+             <input type="text" id="commentInput_{{$index}}" class="commentInput" data-ng-model ="story.newcomment"  placeholder="Add a comment"/>
+             <input type="submit" value="Send" class="button buttonBlue commentButton"/>
+           </form>
+       </div>
+       </div>
+
+
+
+      </div>
+    </div>
+    <input type="button" id="loadMore" data-ng-click="getMoreStories()" value="Load More"/>
+  </div>
+</div>
+<div id = "endText">
+  End of results
+</div>
+</body>
+
+
+</html>

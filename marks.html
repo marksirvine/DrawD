@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<!-- Defining html5 with XHTML above-->
+
+<head>
+  <meta charset="UTF-8"/>
+
+  <!-- Pure css link -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous"/>
+
+  <!-- CSS link -->
+  <link href="test.css" rel="stylesheet" type="text/css" />
+  <!-- Script Link-->
+
+  <script src="jspractice.js"></script>
+  <!-- Run Script-->
+
+  <title> Report </title>
+  </head>
+
+<body>
+
+  <h1> Web Technologies - Drawd </h1>
+<h3> Mark Irvine, Jonathan Lao </h3>
+<h3> <br> </h3>
+<h2> Website introduction </h2>
+<p> Drawd is a social, image drawing site, were you attempt to draw given images then view all the drawings of the community. <p>
+<h3> How to use Drawd </h3>
+<p> Using Drawd is easy, just select your image with the "change image" button, then use the tools on the right hand side to replicate the image on the canvas. <p>
+<p> When you are done, click "save and publish" then go to the "feed" page to view all of the drawings. <p>
+<p> Scroll down the Web Technologies - Drawd
+
+Mark Irvine, Jonathan Lao
+
+
+Website introduction
+
+Drawd is a social, image drawing site, were you attempt to draw given images then view all the drawings of the community.
+
+How to use Drawd
+
+Using Drawd is easy, just select your image with the "change image" button, then use the tools on the right hand side to replicate the image on the canvas.
+
+When you are done, click "save and publish" then go to the "feed" page to view all of the drawings.
+
+Scroll down the bottemless feed, rating and commenting on images.
+
+
+Details
+
+HTML - A
+
+We used the HTML5 validator at https://html5.validator.nu/, as well as using the http://www.w3.org/1999/xhtml namespace to ensure that we have valid XHTML5. Our pages are well laid out and some HTMl is generated using the AngularJS ng-repeat directive on the feed page to create many copies of the same object.
+
+-
+JS - A+
+
+We used Javascript to create a canvas that the user can draw on with multiple colours and brush sizes, and send the drawn image to the server. The JQuery library is used to support the AngularJS ngInfiniteScroll directive, which we implemented so that a function is called to load more drawings on the feed when the user scrolls down. We also use Javascript to remove, add, or alter elements such as the canvas colours, the load more button, end of page text, and the like button, and also keep the canvas the same size as the image to be drawn. Javascript is used to send information to the server, and make requests, then update the DOM with this information.
+
+-
+CSS - A
+
+We wrote all the CSS ourselves, making use of the CSS3 flexbox layout, and ensuring that the elements on the website are aligned correctly on any screen size. As a result however, the website may not work on IE browsers as they are lacking support for flexbox. We created buttons and boxes to fit the style of the site. We made use of hover effects and transitions to improve the aesthetics. There are no style tags or attributes in the HTML.
+
+-
+PNG - B
+
+The website primary function is displaying various png images. Png images were taken from google images, then altered using GIMP to fit correctly into the website.
+
+- Resize/Crop - All PNG images were cropped to the same shape and size.
+- 64BitPNG handling - Drawn canvas images were converted to a 64 bit png image to be sent to the server.
+SVG - B
+
+The website makes great use of a javascript canvas to and painting tools alow you to create your own images. We also created a like button, with two different SVGS for unclicked and clicked states.
+
+Canvas -
+Server - B
+
+The website runs on a raw javascript server using node, we chose raw to challenge ourselves. We started with your (Ian) basic server then greatly expanded it to provide the backbone of the website. The noteworthy server features are (Many of these required extensive use of JS);
+
+URL Validation - Prevent sysnonims such as /../ being used in the url, Check the url against a blacklist, check url using valid-url package (Not included as blocked localhost url)
+Request Routing - Request were routed aound the server, handling it defferently depending on (GET/POST/PUT) and the url. Many custom routes were created to suport all the numerous requests that our client makes .
+Image handling - Images were converted to a base 64 bit string before being sent to the server, this was appended to a number (5) which represented the origional image number that you were drawing as as well as regualr expressions to signal where it started and ended. The server would patternmatch to find the origional image number and the png image, save the record to the database and the image to the server filesystem.
+Database - A
+
+The website uses a SQL databse, using sqlite3. The database has 3 tables, one for the origional images, one for the user drawn images and one for the comments of each image. The script used to create this database can be viewed in the createTable.sql file, and was designed from scratch.
+
+Auto ID's - Database tables automaticly generate primary ID keys, these are imidiately used (using callbacks) to add to the .png url for saving the file, so each file has a unique address.
+Primary/Foreign keys - Primary and foreign keys are used to link the data tables.
+Callbacks - Callbacks used effectly to order http responces, eg the location of the file was updated after it had its id generated, this was used in the filename.
+Dynamic pages - A
+
+We used Javascript to send HTTP requests to the server and receive JSON strings. We made use of the AngularJS framework to dynamically update the pages with this information, showing more drawings on the feed page. Every time the feed page is loaded, the most recent drawings are requested from the server, and then these drawings are displayed on the webpage. When the user scrolls down or presses the load more button, more drawings are requested and displayed. Comments are also dynamically displayed on the webpage.
+
+Insering images into place holders
+Callbacks - Callbacks used effectly to order http responces.
+Depth
+
+We tried to use as few frameworks and libraries as possible to challenge ourselves. We used the AngularJS framework and JQuery library for Javascript, with everything else created on our own.
+
+We are particularly proud of the feed, which dynamically generates boxes with user drawings and original drawings, and allows visitors to like and comment on drawings created by other visitors. The page makes use of infinite scroll until it reaches the end, streamlining the user experience.
+
+The server and backend also required a tremendous amount of work as it was written in a raw javascript (nodejs), and responding to 8+ different request types. feed, rating and commenting on images. <p>
+<p> <br> </p>
+
+<h2> Details </h2>
+<h3> HTML - A </h3>
+<p> We used the HTML5 validator at https://html5.validator.nu/, as well as using the http://www.w3.org/1999/xhtml namespace to ensure that we have valid XHTML5.  Our pages are well laid out
+  and some HTMl is generated using the AngularJS ng-repeat directive on the feed page to create many copies of the same object.</p>
+<ul>
+<li> - </li>
+</ul>
+
+<h3> JS  - A+ </h3>
+<p> We used Javascript to create a canvas that the user can draw on with multiple colours and brush sizes, and send the drawn image to the server. The JQuery library is used to support the AngularJS ngInfiniteScroll directive, which we implemented so that a function is called to load more drawings on the feed when the user
+scrolls down. We also use Javascript to remove, add, or alter elements such as the canvas colours, the load more button, end of page text, and the like button, and also keep the canvas the same size as the image to be drawn.
+Javascript is used to send information to the server, and make requests, then update the DOM with this information. </p>
+<ul>
+<li> - </li>
+</ul>
+
+<h3> CSS - A </h3>
+<p> We wrote all the CSS ourselves, making use of the CSS3 flexbox layout, and ensuring that the elements on the website are aligned correctly on any screen size.
+  As a result however, the website may not work on IE browsers as they are lacking support for flexbox. We created buttons and boxes to fit the style of the site.
+  We made use of hover effects and transitions to improve the aesthetics. There are no style tags or attributes in the HTML.</p>
+<ul>
+<li> - </li>
+</ul>
+
+<h3> PNG - B </h3>
+<p> The website primary function is displaying various png images. Png images were taken from google images, then altered using GIMP to fit correctly into the website.  </p>
+<ul>
+<li> - Resize/Crop - All PNG images were cropped to the same shape and size.</li>
+<li> - 64BitPNG handling - Drawn canvas images were converted to a 64 bit png image to be sent to the server.</li>
+
+</ul>
+
+<h3> SVG - B </h3>
+
+<p> The website makes great use of a javascript canvas to and painting tools allow you to create your own images. We also created a like button, with two different SVGS for unclicked and clicked states. </p>
+
+<ul>
+<li>Canvas - </li>
+</ul>
+
+
+<h3> Server - B </h3>
+<p> The website runs on a raw javascript server using node, we chose raw to challenge ourselves. We started with your (Ian) basic server then greatly expanded it to provide the backbone of the website. The noteworthy server features are (Many of these required extensive use of JS);  </p>
+<ul>
+<li>URL Validation - Prevent synonyms such as /../ being used in the url, Check the url against a blacklist, check url using valid-url package (Not included as blocked localhost url) </li>
+<li>Request Routing - Request were routed aound the server, handling it defferently depending on (GET/POST/PUT) and the url. Many custom routes were created to suport all the numerous requests that our client makes . </li>
+<li>Image handling - Images were converted to a base 64 bit string before being sent to the server, this was appended to a number (5) which represented the origional image number that you were drawing as as well as regualr expressions to signal where it started and ended. The server would patternmatch to find the origional image number and the png image, save the record to the database and the image to the server filesystem.  </li>
+</ul>
+
+
+<h3> Database - A </h3>
+<p> The website uses a SQL databse, using sqlite3. The database has 3 tables, one for the origional images, one for the user drawn images and one for the comments of each image. The script used to create this database can be viewed in the createTable.sql file, and was designed from scratch.</p>
+<ul>
+<li>Auto ID's - Database tables automaticly generate primary ID keys, these are imidiately used (using callbacks) to add to the .png url for saving the file, so each file has a unique address.</li>
+<li>Primary/Foreign keys - Primary and foreign keys are used to link the data tables. </li>
+<li>Callbacks - Callbacks used effectly to order http responces, eg the location of the file was updated after it had its id generated, this was used in the filename.  </li>
+</ul>
+
+
+<h3> Dynamic pages - A </h3>
+<p>We used Javascript to send HTTP requests to the server and receive JSON strings.  We made use of the AngularJS framework to dynamically update the pages with this information, showing
+more drawings on the feed page. Every time the feed page is loaded, the most recent drawings are requested from the server, and then these drawings are displayed on the webpage. When the user
+scrolls down or presses the load more button, more drawings are requested and displayed. Comments are also dynamically displayed on the webpage.
+
+</p>
+<ul>
+<li>Insering images into place holders </li>
+<li>Callbacks - Callbacks used effectly to order http responces.  </li>
+
+</ul>
+
+<h3> Depth </h3>
+<p> We tried to use as few frameworks and libraries as possible to challenge ourselves. We used the AngularJS framework and JQuery library for Javascript, with everything else created on our own.</p>
+<p>We are particularly proud of the feed, which dynamically generates boxes with user drawings and original drawings, and allows
+visitors to like and comment on drawings created by other visitors. The page makes use of infinite scroll until it reaches the end,
+streamlining the user experience.</p>
+<p>The server and backend also required a tremendous amount of work as it was written in a raw javascript (nodejs), and responding to 8+ different request types. </p>
+
+
+</body>
+
+</html>

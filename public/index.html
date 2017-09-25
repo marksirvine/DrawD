@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+<!-- Defining html5 with XHTML above-->
+
+<head>
+  <meta charset="UTF-8"/>
+
+  <!-- CSS link -->
+  <link href="drawd.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+  <!-- Script Link-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="draw.js"></script>
+  <!-- Run Script-->
+
+  <title> Drawd </title>
+  </head>
+
+<body>
+  <div class = "header">
+      <ul>
+          <li><a href = "index.html"> DRAWD </a></li>
+          <li><a class = "active" href="index.html">Draw</a></li>
+          <li><a href="feed.html">Feed</a></li>
+
+      </ul>
+  </div>
+
+  <div class = "drawBox">
+    <div class = "flex">
+      <div class="imageBox imageBox-3">
+        <div>
+          <img alt="Image to draw" class="image" id="displayedFlag" src="flags/albania.png" />
+        </div>
+        <div>
+          <input type="button" class="button buttonWhite" id="changeFlag" value = "Change Image" onclick = "displayNextFlag();" />
+        </div>
+      </div>
+      <div class="imageBox imageBox-4">
+        <div>
+          <canvas id="canvas" width="500"  height="500"></canvas>
+        </div>
+        <div>
+          <input type="button" class = "button buttonClear" id ="clear" value="Clear canvas" onclick= "clearCanvas()"/>
+          <input type="button" class = "button buttonBlack" id ="black" value="Black" onclick= "changeColour(colourBlack)"/>
+          <input type="button" class = "button buttonWhite" id ="white" value="White" onclick= "changeColour(colourWhite)"/>
+          <input type="button" class = "button buttonBlue" id ="blue" value="Blue" onclick= "changeColour(colourBlue)"/>
+          <input type="button" class = "button buttonRed" id ="red" value="Red" onclick= "changeColour(colourRed)" />
+          <input type="button" class = "button buttonGreen" id ="green" value="Green" onclick="changeColour(colourGreen)" />
+          <div class = "slider">
+              <a> Brush size</a>
+              <input type="range" min="1" max="31" value="6" step="5" onchange="changeSize(this.value)" />
+          </div>
+          <div>
+            <input type="button" class="button buttonYellow" id ="save" value="Save and Publish" onclick= "savePublish()"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
