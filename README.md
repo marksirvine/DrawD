@@ -8,20 +8,19 @@ Drawd is a social, image drawing site, were you attempt to draw given images the
 [SQLite3](https://www.sqlite.org/index.html)
 
 SQLite3 for node:
-'''
+```sh
 npm install sqlite3
-'''
+```
 
 ## Local setup
 
 Simply run 
-'''
+```
 node server.js
-'''
+```
 and access the server at
-'''
-http://localhost:8080
-'''
+
+[http://localhost:8080](http://localhost:8080)
 
 
 ## How to use Drawd
