@@ -6,11 +6,8 @@ Most of the website is written in Javascript, HTML5 and CSS3, however some parts
 
 ## Requirements
 
-* [Node.js](http://nodejs.org/)
-* SQLite3 for node.js:
-```sh
-npm install sqlite3
-```
+* Node.js
+* SQLite3 for node.js
 
 ## Local setup
 
