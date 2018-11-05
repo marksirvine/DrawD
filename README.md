@@ -1,5 +1,6 @@
 # DrawD
-Drawd is a social, image drawing site, were you attempt to draw given images then view all the drawings of the community.
+DrawD is a social, image drawing site, were you attempt to draw given images then view all the drawings of the community.
+DrawD runs on a raw node.js server, a SQL database then uses the AngularJS framework and JQuery library for some parts of the feed.
 
 
 ## Requirements
