@@ -1,6 +1,7 @@
 # DrawD
 DrawD is a social, image drawing site, were you attempt to draw given images then view all the drawings of the community.
-DrawD runs on a raw node.js server, a SQL database then uses the AngularJS framework and JQuery library for some parts of the feed.
+DrawD runs on a raw node.js server and uses a SQL database.
+Most of the website is written in Javascript, HTML5 and CSS3, however some parts of the feed use the AngularJS framework and JQuery library.
 
 
 ## Requirements
