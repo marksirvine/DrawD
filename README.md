@@ -4,10 +4,8 @@ Drawd is a social, image drawing site, were you attempt to draw given images the
 
 ## Requirements
 
-[Node.js](http://nodejs.org/)
-[SQLite3](https://www.sqlite.org/index.html)
-
-SQLite3 for node:
+* [Node.js](http://nodejs.org/)
+* SQLite3 for node:
 ```sh
 npm install sqlite3
 ```
